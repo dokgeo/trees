@@ -1,0 +1,125 @@
+@charset "UTF-8";
+
+
+.work_wrap{
+	width:900px;
+	margin: 10px 20px;
+	display:inline-block;
+	
+}
+.worklist{
+	border-bottom: 20px solid #FEE300;
+	width:900px;
+	font-size :30px;
+	display:flex;
+ 	font-family: 'Noto Sans KR', sans-serif;
+	
+}
+
+.workzone{
+	border:1px solid;
+	width:600px;
+	height:140px;
+	position:relative;
+	margin:0px 20px;
+	top:20px;
+}
+
+.workzone h2 {
+	position:absolute;
+	left:40%;
+	top:2%;
+	margin:0;
+}
+
+.workimg{
+	border:none;
+	width:100px;
+	height:100px;
+	position:absolute;
+}
+
+.kname {
+	position:absolute;
+	left:40%;
+	top:45%;
+	margin:0;
+}
+
+.kmember {
+	position:absolute;
+	left:40%;
+	bottom:2%;
+	margin:0;
+}
+
+
+.know {
+	position:absolute;
+	left:72%;
+	top:45%;
+	margin:0;
+}
+
+.kafter {
+	position:absolute;
+	left:72%;
+	bottom:2%;
+	margin:0;
+}
+.addwork_btn{
+	display:flex;
+	position:absolute;
+	background-color:white; 
+	 border-radius: 5px;
+	
+	color:black;
+		left: 830px;
+	
+}
+
+.deletework_btn{
+	display:flex;
+	position:absolute;
+	 border-radius: 5px;
+	
+	color:black;
+		left: 940px;
+	
+}
+.buttons{
+	display:inline-block;
+}
+
+.addstore{
+	border :0px;
+ 	background-color:white;
+	font-size:15px;
+	color:#6D6D6D;
+		border-radius:5px;
+		cursor:pointer;
+}
+
+.delstore{
+	border :0px;
+	background-color:white;
+	font-size:15px;
+	color:#6D6D6D;
+		border-radius:5px;
+		cursor:pointer;
+}
+
+.fa-plus-square{
+	display:flex; 
+	color:#6D6D6D;
+	vertical-align:middle;
+	line-height: normal;
+	
+}
+.fa-minus-square{
+	display:flex; 
+	color:#6D6D6D;
+	vertical-align:middle;
+	line-height: normal;
+	
+}

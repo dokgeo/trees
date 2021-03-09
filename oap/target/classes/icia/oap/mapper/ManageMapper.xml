@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="icia.oap.mapper.ManageMapper">
+
+<select id="getMyWorkZoneList" resultType="icia.oap.beans.ManageBean">
+	<![CDATA[
+SELECT sh_code as shcode,sh_name as shName,sh_type as shType, sh_addr as shaddr,sh_tel 
+as shTel,
+COUNT(SIA.sia_abcode) AS workman
+FROM SH INNER JOIN SIA ON sia.sia_shcode = sh.sh_code 
+where SH_MNCODE = '10000000'
+group by sh.sh_code,sh.sh_addr,sh.sh_businessli,sh.sh_tel,sh.sh_type,sh.sh_name
+]]>
+</select>
+
+	<select id="getLogList" resultType="icia.oap.beans.ManageBean">
+	<![CDATA[
+ select rd_rtshcode as SHCODE, rd_rtabcode as ABCODE, AB_NAME AS ABNAME, wl_scstarttime as workTime,
+ rt_type as RTTYPE,wl.wl_specialnote AS NOTE,
+ rd_rttime as RTTIME , rd_moneytype as moneyt,
+ rd_moneycount as MCOUNT FROM RD
+ INNER JOIN rt ON rt.rt_siaabcode = rd.rd_rtabcode AND rt.rt_siashcode = rd.rd_rtshcode
+ AND rt.rt_time = RD.RD_RTTIME
+ INNER JOIN AB ON ab.ab_code = RD.RD_RTABCODE
+ INNER JOIN WL ON rd.rd_rtshcode = WL.WL_scshcode AND RD.RD_RTABCODE = wl.wl_scabcode
+ WHERE rt.rt_type ='2' AND TO_CHAR(RD.RD_RTTIME, 'YYYYMMDD') = '20210304'
+ GROUP BY RD.RD_RTSHCODE,rd.rd_rtabcode,ab.ab_name,
+ rt.rt_type,rd.rd_rttime,rd.rd_moneytype,rd.rd_moneycount,WL.WL_SPECIALNOTE,wl.wl_scstarttime
+ ORDER BY wl.wl_specialnote,to_number(rd_moneytype)  desc
+]]>
+</select>
+</mapper>	
