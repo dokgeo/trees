@@ -28,7 +28,7 @@ public class ManagementInquiery {
 	}
 	
 	public ModelAndView entrance(ManageBean mBean) {
-		ModelAndView mav = null;
+	
 	
 		switch(mBean.getSCode()) {
 		case "myWorkZone":
@@ -216,7 +216,7 @@ ModelAndView mav = new ModelAndView();
 	private ArrayList<ManageBean> getScheduleList(ManageBean mBean){
 		return mapperM.getScheduleList(mBean);
 	}
-	
+	//근무일지
 	private ModelAndView workDiaryCtl(ManageBean mBean) {
 		ModelAndView mav = new ModelAndView();
 		String jsonData = gson.toJson(this.getLogList(mBean));
@@ -226,20 +226,8 @@ ModelAndView mav = new ModelAndView();
 		mbTest = this.getLogList(mBean);
 		mav.addObject("Log", jsonData);
 		
-		mav.addObject("oman",mbTest.get(7).getMCOUNT());
-		mav.addObject("man",mbTest.get(6).getMCOUNT());
-		mav.addObject("ocheon",mbTest.get(5).getMCOUNT());
-		mav.addObject("cheon",mbTest.get(4).getMCOUNT());
-		mav.addObject("obak",mbTest.get(3).getMCOUNT());
-		mav.addObject("bak",mbTest.get(2).getMCOUNT());
-		mav.addObject("osip",mbTest.get(1).getMCOUNT());
-		mav.addObject("sip",mbTest.get(0).getMCOUNT());
-		
-		mav.addObject("abName", mbTest.get(0).getAbName());
-		mav.addObject("workTime", mbTest.get(0).getWorkTime());
-		mav.addObject("note", mbTest.get(0).getNote());
-		
-		System.out.println(jsonData);
+	
+//		System.out.println(jsonData);
 		
 		
 		mav.setViewName("workDiary");

@@ -16,7 +16,7 @@
 <script>
 	function init() {
 
-		alert("후 ㅅㅂ");
+	
 		let section = document.getElementById("logZone");
 
 		let log = JSON.parse('${Log}');
@@ -56,7 +56,7 @@
 
 				//근무일자	
 				let workday = document.createElement('div');
-				workdayTemp = log[i].RTTIME.substring(0, 10);
+				workdayTemp = log[i].rtTime.substring(0, 10);
 				workday.className = "work_date_contents";
 				workday.style.width = "200px";
 				workday.textContent = workdayTemp;
@@ -136,7 +136,7 @@
 				//금액 숫자 인수 현황	
 				let moneycount = document.createElement('input');
 				moneycount.readOnly = true;
-				moneycnt = log[i].MCOUNT;
+				moneycnt = log[i].mCount;
 				moneycount.value = moneycnt;
 				moneycount.className = "work_diary_strongbox_data";
 				//금액종류 인계현황
@@ -202,7 +202,7 @@
 				//금액 숫자 인수 현황	
 				let moneycount = document.createElement('input');
 				moneycount.readOnly = true;
-				moneycnt = log[i].MCOUNT;
+				moneycnt = log[i].mCount;
 				moneycount.value = moneycnt;
 				moneycount.className = "work_diary_strongbox_data";
 				//금액종류 인계현황

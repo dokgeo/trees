@@ -3,14 +3,14 @@
 .large {
 	border-top:1px solid gray;
 	border-bottom:1px solid gray;
-	width:700px;
+	width:900px;
 }
 
 .space {
 	border-top:1px solid gray;
 	border-bottom:1px solid gray;
 	display:flex;
-	width:700px;
+	width:900px;
 }
 
 .title {
@@ -24,7 +24,7 @@
 
 .spaceright {
 	font-size: 20px;
-	padding:20px;
+	padding:20px 10px 20px 5px;
 }
 
 .buttonlocation {
@@ -42,3 +42,9 @@
 #passwordEdit , #nameEdit , #accountEdit{
 	display:none;
 }
+
+.noborder{
+	border:0px;
+	font-size:20px;
+}
+

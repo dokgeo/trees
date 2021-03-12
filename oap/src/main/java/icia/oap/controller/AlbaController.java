@@ -5,9 +5,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.support.DefaultTransactionDefinition;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import icia.oap.beans.AlbaBean;
@@ -30,7 +33,17 @@ public class AlbaController {
 	
 	ModelAndView mav = null;
 	
+	// 알바생페이지 
+		@RequestMapping(value = "/workman", method = RequestMethod.GET)
+		public ModelAndView albaList() {
+			
+			
+			return mav;
+		}
+	
+	
 	/* ---------------------------------- 알바생 - 조회 ---------------------------------- */
+
 	
 	// 알바생이 일하고잇는 알바 ( 매장 ) 리스트 조회
 	@RequestMapping(value = "/AlbaList", method = RequestMethod.GET)
@@ -82,8 +95,38 @@ public class AlbaController {
 	}
 	
 	// 알바생 일정 관리  -  알바생이 자신이 회원가입시 등록한 정보를 조회
-	@RequestMapping(value = "/Modify", method = RequestMethod.GET)
+	@RequestMapping(value = "/Modify", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
 	public ModelAndView modify(@ModelAttribute AlbaBean aBean) {
+		aBean.setSCode("Modify");
+		aBean.setAbCode("100000000");
+		
+		return aModify.entrance(aBean);
+	}
+	
+	// 알바생 일정 관리  -  알바생이 자신이 회원가입시 등록한 정보를 조회
+	@RequestMapping(value = "/ModifyComplete", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public ModelAndView modifyComplete(@ModelAttribute AlbaBean aBean) {
+		aBean.setSCode("ModifyComplete");
+		aBean.setAbCode("100000000");
+		
+		return aModify.entrance(aBean);
+	}
+	@RequestMapping(value = "/ModifyComplete2", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public ModelAndView modifyComplete2(@ModelAttribute AlbaBean aBean) {
+		aBean.setSCode("ModifyComplete2");
+		aBean.setAbCode("100000000");
+		
+		return aModify.entrance(aBean);
+	}
+	@RequestMapping(value = "/ModifyComplete3", method = {RequestMethod.GET,RequestMethod.POST})
+	@ResponseBody
+	public ModelAndView modifyComplete3(@ModelAttribute AlbaBean aBean) {
+		aBean.setSCode("ModifyComplete3");
+		aBean.setAbCode("100000000");
+		
 		return aModify.entrance(aBean);
 	}
 	
@@ -92,6 +135,9 @@ public class AlbaController {
 	public ModelAndView modifyInfomation(@ModelAttribute AlbaBean aBean) {
 		return aModify.entrance(aBean);
 	}
+
+	
+	
 	
 	
 	

@@ -5,7 +5,7 @@
 
 	<select id="getManagerList" resultType="icia.oap.beans.AuthBean">
 	<![CDATA[
-		select mn_name as mnName, mn_code as mnCode from mn where mn_code = '10000000'
+		select mn_name as mnName from mn where mn_code = '10000001'
 	]]>
 	</select>	
 </mapper>	

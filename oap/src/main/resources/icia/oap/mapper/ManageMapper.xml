@@ -13,13 +13,13 @@ where SH_MNCODE = '10000000'
 group by sh.sh_code,sh.sh_addr,sh.sh_businessli,sh.sh_tel,sh.sh_type,sh.sh_name
 ]]>
 </select>
-
+<!-- 	근무일지 특정 날짜의 근무자,데이터 출력  -->
 	<select id="getLogList" resultType="icia.oap.beans.ManageBean">
 	<![CDATA[
- select rd_rtshcode as SHCODE, rd_rtabcode as ABCODE, AB_NAME AS ABNAME, wl_scstarttime as workTime,
- rt_type as RTTYPE,wl.wl_specialnote AS NOTE,
- rd_rttime as RTTIME , rd_moneytype as moneyt,
- rd_moneycount as MCOUNT FROM RD
+ select rd_rtshcode as SHCODE, rd_rtabcode as abCode, AB_NAME AS ABNAME, wl_scstarttime as workTime,
+ rt_type as rtType,wl.wl_specialnote AS NOTE,
+ rd_rttime as rtTime , rd_moneytype as moneyt,
+ rd_moneycount as mCount FROM RD
  INNER JOIN rt ON rt.rt_siaabcode = rd.rd_rtabcode AND rt.rt_siashcode = rd.rd_rtshcode
  AND rt.rt_time = RD.RD_RTTIME
  INNER JOIN AB ON ab.ab_code = RD.RD_RTABCODE

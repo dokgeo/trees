@@ -20,12 +20,12 @@ public String detail;
 //근무일지
 public String wltime;
 public String workTime;
-public String ABCODE;
+public String abCode;
 public String abName;
 public String moneyt;
-public String MCOUNT;
-public String RTTIME;
-public String RTTYPE;
+public String mCount;
+public String rtTime;
+public String rtType;
 public String note;
 
 

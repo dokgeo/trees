@@ -2,7 +2,30 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="icia.oap.mapper.AlbaMapper">
+<!-- 알바생정보 조회 -->
+<select id="getAlbaInfo" resultType="icia.oap.beans.AlbaBean">
+	<![CDATA[
+select ab_code as abCode, ab_id as abId, ab_pw as abPw ,ab_name as abName,ab_birth as abBirth,ab_gender as abGender,
+ac_bankname as acBankName, ac_account as acAccount from ab
+inner join ac on ac.ac_abcode = ab.ab_code where ab.ab_code = #{abCode}
+group by ab.ab_code,ab.ab_id,ab.ab_pw,ab.ab_name,ab.ab_birth,ab.ab_gender,ac.ac_bankname,ac.ac_account
 
+]]>
+</select>
 
-		
+	<update id="editName" >
+	<![CDATA[
+update AB set AB_NAME = #{abName} where AB_CODE =#{abCode} 
+ ]]> 
+</update>
+<update id="editAccount" >
+	<![CDATA[
+update AC set AC_BANKNAME =#{acBankName},AC_ACCOUNT=#{acAccount} where AC_ABCODE =#{abCode} and AC_ACCOUNT=#{acAccount}
+ ]]> 
+</update>	
+<update id="editPassword" >
+	<![CDATA[
+ update AB set AB_PW =#{abPw} where AB_CODE =#{abCode}
+]]> 
+</update>
 </mapper>	

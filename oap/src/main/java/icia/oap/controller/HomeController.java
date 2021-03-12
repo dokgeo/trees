@@ -26,17 +26,17 @@ public class HomeController {
 	ModelAndView mv = null;
 
 	
+	//메인페이지
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ModelAndView home(@ModelAttribute AuthBean authBean) {
+	public ModelAndView homeview(@ModelAttribute AuthBean authBean) {
 		mv = new ModelAndView();
-		mv.setViewName("home");
+		//임의의 관리자값
 
-		authBean.setMCode("10000000");
-
-		
-		
+		mv.setViewName("modify");
+	
 		return mv;
 	}
+	
 	
 	/* ----------------------- 회원 가입 ----------------------*/
 	

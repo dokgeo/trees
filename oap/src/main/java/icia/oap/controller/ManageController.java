@@ -123,7 +123,7 @@ public class ManageController {
 
 	
 		
-		mBean.setSCode("workLog");
+//		mBean.setSCode("workLog");
 		
 		return mInquiery.entrance(mBean);
 	}
@@ -132,10 +132,8 @@ public class ManageController {
 	@RequestMapping(value = "/workDiary", method = RequestMethod.GET)
 	public ModelAndView log(@ModelAttribute ManageBean mBean) {
 		mBean.setSCode("workDiary");
-		mBean.setRTTYPE("2");
-		mBean.setShCode("100000000");
-		mBean.setABCODE("100000000");
-		
+		//임의의 데이터 입력
+	
 		return mInquiery.entrance(mBean);
 	}
 	
